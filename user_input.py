@@ -1,4 +1,17 @@
 
+def get_task_chosen():
+    print('Choose an option for your task')
+    print('==========================')
+    print('1. Create/Add a task')
+    print('3. Remove a task')
+    print('2. Update a task')
+    print('4. Display all tasks')
+    print('5. Quit')
+    print('==========================')
+    choice = int(input('enter your choice(1 - 4): '))
+
+    return choice
+
 def user_input():
    choice = get_task_chosen()
    match choice:
@@ -20,16 +33,4 @@ def user_input():
        case _:
            return 'Please enter a valid choice'
 
-def get_task_chosen():
-    print('Choose an option for your task')
-    print('==========================')
-    print('1. Create/Add a task')
-    print('2. Update a task')
-    print('3. Delete a task')
-    print('3. Remove a task')
-    print('4. Display all tasks')
-    print('5. Quit')
-    print('==========================')
-    choice = int(input('enter your choice(1 - 4): '))
-
-    return choice
+print(user_input())
