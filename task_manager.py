@@ -1,6 +1,7 @@
 #import module and assign an alias
 import user_input as ui
 import task_operations as task_op
+import storage as storage
 
 def display_tasks(option):
     match option:
@@ -8,7 +9,9 @@ def display_tasks(option):
             print('==========================')
             print('Option',option, ': Create a task')
             print('==========================')
-            task_op.create_task()
+            task = task_op.create_task()
+            storage.store_tasks(task)
+            
         case 2:
             print('==========================')
             print('Option',option, ': Remove a task')

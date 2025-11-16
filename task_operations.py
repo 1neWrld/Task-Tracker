@@ -2,6 +2,8 @@ import datetime
 import sys
 import random
 
+from models.task import Task
+
 current_id = 0
 
 def create_task():
@@ -27,8 +29,12 @@ def create_task():
     print(f"  Description: {description}")
     print(f"  Status: {status}")
 
+    task = Task(task_id, description, status, created_at, updated_at)
+    return task
+
 def remove_task():
     print('Remove a task')
+
 
 def update_task():
     print('Update a task')
