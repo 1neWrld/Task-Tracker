@@ -3,6 +3,8 @@ import sys
 import random
 
 from models.task import Task
+from storage import DATA_FILE
+
 
 def create_task():
 
@@ -32,8 +34,16 @@ def remove_task():
     print('Remove a task')
 
 
-def update_task():
+def update_tasks(task_object):
     print('Update a task')
+
+    valid_status = {"todo", "in_progress", "done"}
+    while(new_status := input('Rewrite status: ')) not in valid_status:
+        print("Invalid status. Must be: todo, in-progress, done")
+    task_object.status = new_status
+    task_object.updated_at = datetime.datetime.now()
+
+    return task_object
 
 def display_task():
     print('Display a task')
