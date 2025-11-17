@@ -4,13 +4,9 @@ import random
 
 from models.task import Task
 
-current_id = 0
-
 def create_task():
 
-    global current_id
-    current_id += 1
-    task_id = current_id
+    task_id = get_id()
 
     # Walrus operator allows you to assign a value and use it in an expression simoultaneously
     while len(description := input('Enter a brief description: ')) > 30:
@@ -44,3 +40,8 @@ def display_task():
 
 def quit_program():
     sys.exit()
+
+def get_id():
+    #lazy import - import task_manager function where it's need (get_id)
+    from task_manager import pass_task_id
+    return pass_task_id()

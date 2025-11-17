@@ -3,28 +3,30 @@ import user_input as ui
 import task_operations as task_op
 import storage as storage
 
+#import pdb; pdb.set_trace()
+
 def display_tasks(option):
     match option:
         case 1:
             print('==========================')
-            print('Option',option, ': Create a task')
+            print(f"Option {option}: Create a task")
             print('==========================')
             task = task_op.create_task()
-            storage.store_tasks(task)
+            storage.save_tasks(task)
             
         case 2:
             print('==========================')
-            print('Option',option, ': Remove a task')
+            print(f"Option {option}: Remove a task")
             print('==========================')
             task_op.remove_task()
         case 3:
             print('==========================')
-            print('Option',option, ': Update a task')
+            print(f"Option {option}: Update a task")
             print('==========================')
             task_op.update_task()
         case 4:
             print('==========================')
-            print('Option',option, ': Display a task')
+            print(f"Option {option}: Display a task")
             print('==========================')
             task_op.display_task()
         case 5:
@@ -35,7 +37,10 @@ def display_tasks(option):
         case _:
             print('Option not recognized')
 
+#pass through function
+def pass_task_id():
+    _id = storage.get_next_id()
+    return _id
 
 
-task_option = ui.user_input()
-display_tasks(task_option)
+

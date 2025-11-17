@@ -14,6 +14,8 @@ class Task:
             'id': self.task_id,
             'description': self.description,
             'status': self.status,
-            'create_at': self.created_at,
-            'updated_at': self.updated_at
+
+             #convert dates to string format
+            'created_at': self.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+            'updated_at': self.updated_at.strftime('%Y-%m-%d %H:%M:%S')
         }
