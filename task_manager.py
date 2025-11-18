@@ -9,7 +9,7 @@ from storage import find_task_by_id
 
 #import pdb; pdb.set_trace()
 
-def display_tasks(option):
+def chosen_task_operation(option):
     match option:
         case 1:
             print('==========================')
@@ -17,17 +17,25 @@ def display_tasks(option):
             print('==========================')
             task = task_op.create_task()
             storage.save_tasks(task)
+
+            print ('Task successfully created')
             
         case 2:
             print('==========================')
             print(f"Option {option}: Remove a task")
             print('==========================')
 
-            task_op.remove_task()
+            task_id = int(input('Enter task id: '))
+            deleted = storage.remove_task_from_list(task_id)
+
+            if deleted:
+                print('Task deleted successfully')
+            else:
+                print('Task not found')
 
         case 3:
             print('==========================')
-            print(f"Option {option}: Update a task")
+            print(f"Option {option}: Update a task status")
             print('==========================')
 
             task_id = int(input('Enter task id: '))
@@ -38,13 +46,17 @@ def display_tasks(option):
             else:
                 updated_task = task_op.update_tasks(task_object)
                 storage.update_task(updated_task)
-
+                print ('Task successfully updated')
 
         case 4:
             print('==========================')
-            print(f"Option {option}: Display a task")
+            print(f"Option {option}: Display tasks")
             print('==========================')
-            task_op.display_task()
+
+            tasks = storage.load_tasks()
+            for task in tasks:
+                task_op.display_tasks(task)
+
         case 5:
             print('==========================')
             print('Quit, Goodbye')

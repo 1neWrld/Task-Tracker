@@ -5,7 +5,6 @@ import random
 from models.task import Task
 from storage import DATA_FILE
 
-
 def create_task():
 
     task_id = get_id()
@@ -30,12 +29,7 @@ def create_task():
     task = Task(task_id, description, status, created_at, updated_at)
     return task
 
-def remove_task():
-    print('Remove a task')
-
-
 def update_tasks(task_object):
-    print('Update a task')
 
     valid_status = {"todo", "in_progress", "done"}
     while(new_status := input('Rewrite status: ')) not in valid_status:
@@ -45,12 +39,22 @@ def update_tasks(task_object):
 
     return task_object
 
-def display_task():
-    print('Display a task')
+def display_tasks(task_dict):
+
+    print(f"""
+    Task ID: {str(task_dict['id'])}
+    Description: {str(task_dict['description'])}
+    Status: {str(task_dict['status'])}
+    Created At: {str(task_dict['created_at'])}
+    Updated At: {str(task_dict['updated_at'])}
+    --------------------------
+    """)
+
 
 def quit_program():
     sys.exit()
 
+#Helper function
 def get_id():
     #lazy import - import task_manager function where it's need (get_id)
     from task_manager import pass_task_id

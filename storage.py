@@ -7,7 +7,6 @@ from pathlib import Path
 DATA_FILE = Path("data/tasks.json")
 
 def load_tasks():
-    print('Loading tasks...')
 
     if not DATA_FILE.exists():
         return [] # no file return empty list
@@ -15,16 +14,16 @@ def load_tasks():
     with open(DATA_FILE, 'r') as f:
         data = json.load(f) # load existing tasks
 
-    if isinstance(data, dict): #if file contains dictionary return list
-        if not data: # if empty dict return empty list
-            return []
+    # Ensure the result is ALWAYS a list
+    if isinstance(data, dict):
         return [data]
-
-    return data
+    elif isinstance(data, list):
+            return data
+    else:
+        return []
 
 
 def save_tasks(task_object):
-    print('Saving tasks...')
 
     tasks = load_tasks() # loads existing tasks (a list)
 
@@ -35,7 +34,6 @@ def save_tasks(task_object):
 
 #overwrite existing task in json
 def update_task(task_object):
-    print('Updating tasks...')
 
     if not DATA_FILE.exists():
         return False
@@ -46,6 +44,7 @@ def update_task(task_object):
 
     #replace old dict with new one
     updated = False
+    #enumerate connects a counter to an iterable( creates, an enumerate object). apply in loops, access both the index and the value
     for i, task_dict in enumerate(tasks):
         if task_dict.get('id') == task_object.task_id:
             tasks[i] = task_object.to_dict()
@@ -58,6 +57,28 @@ def update_task(task_object):
 
     return updated
 
+def remove_task_from_list(task_id):
+
+    if not DATA_FILE.exists():
+        return False
+
+    tasks = load_tasks()
+
+    #filter pattern
+    new_tasks = [t for t in tasks if t['id'] != task_id]
+    if len(new_tasks) == tasks:
+        return False
+
+    #for i, task_dict in enumerate(tasks):
+        #if(task_dict.get('id') == task_id):
+            #del tasks[i]
+            #removed = True
+            #break
+
+    with open(DATA_FILE, 'w') as f:
+        json.dump(new_tasks, f, indent=4)
+
+    return True
 
 # Function to auto-increment id for new tasks
 def get_next_id():
