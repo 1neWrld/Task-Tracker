@@ -106,8 +106,11 @@ Architecture diagram created using draw.io
 ## 🙋‍♂️ Author
 
 **Wandipa Marema**
+
 🎓 [Computer and Information Sciences]
+
 💻 Exploring Python and software development
+
 🌍 GitHub: [@1neWrld](https://github.com/1neWrld)
 
 https://roadmap.sh/projects/task-tracker
