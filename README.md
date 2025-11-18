@@ -85,10 +85,15 @@ Task 1 created:
 This project follows a modular design with clear separation of concerns:
 
 Main Module: Entry point and flow control
+
 User Input Module: Handles all user interactions
+
 Task Manager: Service layer that coordinates operations
+
 Task Operations: Core business logic implementation
+
 Storage Module: Handles JSON persistence (only module with file access)
+
 Task Model: Python class representing task objects
 
 Architecture diagram created using draw.io
