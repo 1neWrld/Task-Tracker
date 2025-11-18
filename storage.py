@@ -98,3 +98,17 @@ def find_task_by_id(task_id):
             return task
     return None
 
+
+def get_status_specified_list(status_specified_list):
+    tasks = load_tasks()
+
+    #return original list if user prompts to display all tasks
+    if status_specified_list == 'all tasks':
+        return tasks
+    else:
+        # create new list containing only status specified tasks
+        new_list = [t for t in tasks if t['status'] == status_specified_list]
+        if len(new_list) == tasks:
+            return None
+        return new_list
+

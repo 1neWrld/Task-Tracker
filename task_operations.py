@@ -13,7 +13,7 @@ def create_task():
     while len(description := input('Enter a brief description: ')) > 30:
         print('Description too long')
 
-    valid_status = {"todo", "in_progress", "done"}
+    valid_status = {"todo", "in-progress", "done"}
     while(status := input('Enter status of task("todo", "in-progress", "done"): ')) not in valid_status:
         print("Invalid status. Must be: todo, in-progress, done")
 

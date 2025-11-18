@@ -53,7 +53,11 @@ def chosen_task_operation(option):
             print(f"Option {option}: Display tasks")
             print('==========================')
 
-            tasks = storage.load_tasks()
+            valid_types = {"all tasks", "todo", "in-progress", "done"}
+            while(status_specified_list_type := input("Enter whether to List (all tasks, todo, in-progress, or done): ")) not in valid_types:
+                print("Invalid option. Enter: 'all tasks', or 'todo', or 'in-progress', or 'done': ")
+
+            tasks = storage.get_status_specified_list(status_specified_list_type)
             for task in tasks:
                 task_op.display_tasks(task)
 
@@ -82,5 +86,6 @@ def pass_task(task_id):
 
     #return converted task (dict) to task instance/object
     return Task.from_dict(task)
+
 
 
