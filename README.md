@@ -25,7 +25,6 @@ Tools: PyCharm IDE, draw.io (Architecture Design), Git
 Storage: JSON file-based persistence
 Version Control: Git & GitHub
 
-
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
@@ -42,7 +41,7 @@ bashpython --version
 bashpython main.py
 ```
 
-##📂 Project Structure
+## 📂 Project Structure
 
 ```
 task-tracker/
