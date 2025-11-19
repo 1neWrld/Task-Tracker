@@ -58,8 +58,12 @@ def chosen_task_operation(option):
                 print("Invalid option. Enter: 'all tasks', or 'todo', or 'in-progress', or 'done': ")
 
             tasks = storage.get_status_specified_list(status_specified_list_type)
-            for task in tasks:
-                task_op.display_tasks(task)
+
+            if len(tasks) == 0:
+                print('No tasks found')
+            else:
+                for task in tasks:
+                    task_op.display_tasks(task)
 
         case 5:
             print('==========================')

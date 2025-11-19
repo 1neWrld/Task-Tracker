@@ -66,7 +66,7 @@ def remove_task_from_list(task_id):
 
     #filter pattern
     new_tasks = [t for t in tasks if t['id'] != task_id]
-    if len(new_tasks) == tasks:
+    if len(new_tasks) == len(tasks):
         return False
 
     #for i, task_dict in enumerate(tasks):
@@ -108,7 +108,7 @@ def get_status_specified_list(status_specified_list):
     else:
         # create new list containing only status specified tasks
         new_list = [t for t in tasks if t['status'] == status_specified_list]
-        if len(new_list) == tasks:
+        if len(new_list) == len(tasks):
             return None
         return new_list
 

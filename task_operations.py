@@ -31,7 +31,7 @@ def create_task():
 
 def update_tasks(task_object):
 
-    valid_status = {"todo", "in_progress", "done"}
+    valid_status = {"todo", "in-progress", "done"}
     while(new_status := input('Rewrite status: ')) not in valid_status:
         print("Invalid status. Must be: todo, in-progress, done")
     task_object.status = new_status
