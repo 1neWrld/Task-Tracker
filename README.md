@@ -117,5 +117,3 @@ Architecture diagram created using draw.io
 💻 Exploring Python and software development
 
 🌍 GitHub: [@1neWrld](https://github.com/1neWrld)
-
-https://roadmap.sh/projects/task-tracker
